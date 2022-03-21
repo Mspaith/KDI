@@ -24,7 +24,8 @@ By default, flask will run on port 5000.
 
 Navigate to URL http://127.0.0.1:5000/ (or) http://localhost:5000
 
-You should be able to view the signin page.
+You should be able to view the signin page.First the user have to jump into the signup page and put the requried cridentials 
+and jump into the signin page after the sucessful signin the user will be redirect into the dashboard page.On dashboard page the user have to insert the mp4 video and you should be able to see the predcited text 
 
 
 
