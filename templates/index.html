@@ -1,0 +1,422 @@
+
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KDI Login</title>
+
+    <style>
+     body {
+     font-family: Arial Rounded Bold;
+     }
+     @font-face {
+     font-family: Arial Rounded Bold;
+     src: url(/static/font/Arial%20Rounded%20Bold.ttf);
+     }
+     .top_img {
+     background: url(/static/images/top-img.png);
+     background-repeat: no-repeat;
+     background-size: 100% 100%;
+     background-position: center;
+     height: 150px;
+     }
+     .navbar-brand {
+     display: none;
+     }
+     section.nav_bar_sec {
+     background-image: linear-gradient(#48D8ED, #23AFD7);
+     }
+     .menu_div .navbar {
+     position: relative;
+     min-height: 0;
+     margin-bottom: 0;
+     border: 1px solid transparent;
+     margin-top: 1%;
+     }
+     body {
+     background: #F4F4F4;
+     }
+     .menu_div .navbar-default {
+     background-color: transparent;
+     border-color: none;
+     }
+     .menu_div .navbar-default .navbar-nav>li>a {
+     color: #fff;
+     }
+     .menu_div_2 {
+     text-align: center;
+     }
+     .menu_div_3 {
+     text-align: right;
+     }
+     button.btn.btn_login {
+     border-radius: 50px;
+     padding: 8px 40px;
+     color: #26B3D9;
+     }
+     button.btn.btn_register {
+     border-radius: 50px;
+     padding: 8px 40px;
+     background: #025D77;
+     color: #fff;
+     }
+     .menu_div_3 {
+     text-align: right;
+     margin-top: 3%;
+     margin-bottom: 3%;
+     }
+     .form_register {
+     background: #fff;
+     width: 60%;
+     box-shadow: 0px 3px 3px #000000;
+     margin: 0 auto;
+     padding: 20px 20px;
+     border-radius: 10px;
+     margin-top: 8%;
+     margin-bottom: 10%;
+     }
+     .form_register h1 {
+     margin-bottom: 6%;
+     font-size: 30px;
+     }
+     .form_register input {
+     border: none;
+     border-bottom: 2px #eee solid;
+     border-radius: 0px;
+     height: 50px;
+     -webkit-box-shadow: 0px 0px 0px #fff;
+     margin-bottom: 20px;
+     }
+     /* The radio */
+     .radio {
+     display: block;
+     position: relative;
+     padding-left: 12px;
+     margin-bottom: 5px;
+     cursor: pointer;
+     font-size: 20px;
+     -webkit-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none
+     }
+     /* Hide the browser's default radio button */
+     .radio input {
+     position: absolute;
+     opacity: 0;
+     cursor: pointer;
+     }
+     /* Create a custom radio button */
+     .checkround {
+     position: absolute;
+     top: 6px;
+     left: 0;
+     height: 20px;
+     width: 20px;
+     background-color: #fff ;
+     border-color:#38A8E3;
+     border-style:solid;
+     border-width:2px;
+     border-radius: 50%;
+     }
+     .btn_cancel_1 {
+     background: #EC2D0F;
+     color: #fff;
+     padding: 10px 30px;
+     margin-right: 2%;
+     font-size: 16px;
+     margin-top: 4%;
+     }
+     /* When the radio button is checked, add a blue background */
+     .radio input:checked ~ .checkround {
+     background-color: #fff;
+     }
+     /* Create the indicator (the dot/circle - hidden when not checked) */
+     .checkround:after {
+     content: "";
+     position: absolute;
+     display: none;
+     }
+     /* Show the indicator (dot/circle) when checked */
+     .radio input:checked ~ .checkround:after {
+     display: block;
+     }
+     /* Style the indicator (dot/circle) */
+     .radio .checkround:after {
+     left: 2px;
+     top: 2px;
+     width: 12px;
+     height: 12px;
+     border-radius: 50%;
+     background:#38A8E3;
+     }
+     /* The check */
+     .check {
+     display: block;
+     position: relative;
+     padding-left: 25px;
+     margin-bottom: 12px;
+     padding-right: 15px;
+     cursor: pointer;
+     font-size: 18px;
+     -webkit-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+     }
+     /* Hide the browser's default checkbox */
+     .check input {
+     position: absolute;
+     opacity: 0;
+     cursor: pointer;
+     }
+     /* Create a custom checkbox */
+     .checkmark {
+     position: absolute;
+     top: 3px;
+     left: 0;
+     height: 18px;
+     width: 18px;
+     background-color: #fff ;
+     border-color:#38A8E3;
+     border-style:solid;
+     border-width:2px;
+     }
+     /* When the checkbox is checked, add a blue background */
+     .check input:checked ~ .checkmark {
+     background-color: #fff  ;
+     }
+     /* Create the checkmark/indicator (hidden when not checked) */
+     .checkmark:after {
+     content: "";
+     position: absolute;
+     display: none;
+     }
+     /* Show the checkmark when checked */
+     .check input:checked ~ .checkmark:after {
+     display: block;
+     }
+     /* Style the checkmark/indicator */
+     .check .checkmark:after {
+     left: 5px;
+     top: 1px;
+     width: 5px;
+     height: 10px;
+     border: solid ;
+     border-color:#f8204f;
+     border-width: 0 3px 3px 0;
+     -webkit-transform: rotate(45deg);
+     -ms-transform: rotate(45deg);
+     transform: rotate(45deg);
+     }
+     .cust-btn{
+     margin-bottom: 10px;
+     background-color: #f8204f;
+     border-width: 2px;
+     border-color: #f8204f;
+     color: #fff;
+     }
+     .cust-btn:hover{
+     border-color: #f8204f;
+     background-color: #fff;
+     color: #f8204f;
+     border-radius: 20px;
+     transform-style: 2s;
+     }
+     .ht_y {
+     color: #858585;
+     font-size: 20px;
+     font-weight: normal;
+     display: block;
+     }
+     .form_register .form-group {
+     display: inline-block;
+     color: #858585;
+     font-weight: normal !important;
+     margin-right: 5%;
+     }
+     .form_register .form-group label {
+     font-weight: normal;
+     }
+     button.btn.btn_submit {
+     display: inline-block;
+     background: #38A8E3;
+     color: #fff;
+     padding: 10px 40px;
+     margin-top: 4%;
+     }
+     @media only screen and (max-width: 480px) {
+     .navbar-brand {
+     display: block;
+     }
+     .form_register {
+     width: 100%;
+     }
+     }
+     .modal {
+     display: none; /* Hidden by default */
+     position: fixed; /* Stay in place */
+     z-index: 1; /* Sit on top */
+     padding-top: 100px; /* Location of the box */
+     left: 0;
+     top: 0;
+     width: 100%; /* Full width */
+     height: 100%; /* Full height */
+     overflow: auto; /* Enable scroll if needed */
+     background-color: rgb(0,0,0); /* Fallback color */
+     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+     }
+     /* Modal Content */
+     .modal-content {
+     background-color: #fefefe;
+     margin: auto;
+     padding: 20px;
+     border: 1px solid #888;
+     width: 20%;
+     height: 140px;
+     text-align: center;
+     width: fit-content;
+     max-width: fit-content;
+     width: -moz-fit-content !important;
+     max-width: -moz-fit-content !important;
+     }
+     button#closeModelBtn {
+     background: #38A8E3;
+     color: #fff;
+     padding: 8px 40px;
+     margin-top: 4%;
+     border: none;
+     border-radius: 2px;
+     font-size: 14px;
+     max-width: 50%;
+     margin-left: auto;
+     margin-right: auto;
+     }
+     /* The Close Button */
+     .close {
+     color: #aaaaaa;
+     float: right;
+     font-size: 28px;
+     font-weight: bold;
+     }
+     .close:hover,
+     .close:focus {
+     color: #000;
+     text-decoration: none;
+     cursor: pointer;
+     }
+    </style>
+
+    
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="X-UA-Compatible" content="IE=7">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="shortcut icon" href="/static/assets/images/favicon.ico">
+
+<!-- Retina iPad Touch Icon-->
+<link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
+<!-- Retina iPhone Touch Icon-->
+<link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+<!-- Standard iPad Touch Icon-->
+<link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
+<!-- Standard iPhone Touch Icon-->
+<link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+<!-- Styles -->
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/style.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/bootstrap-datetimepicker.min.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/helper.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/bootstrap.min.css')}}">	
+
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/bootstrap.min.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/calendar2/pignose.calendar.min.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/chartist/chartist.min.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/font-awesome.min.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/themify-icons.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/owl.carousel.min.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/owl.theme.default.min.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/weather-icons.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/menubar/sidebar.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/bootstrap-datetimepicker.min.css')}}">	
+
+	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900|Poppins:100,200,300,400,500,600,700,800,900|Quicksand:300,400,500,600,700&display=swap" rel="stylesheet">
+
+
+
+</head>
+
+<body class="bg-primary bg-register ff-quicksand regis-xyd">
+<form action="" method="post">
+    <div class="unix-login">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-4">
+                    <div class="login-content">
+                        <div class="login-form">
+                            <h4>Login to KDI</h4>
+
+                                <div class="form-group mb-4">
+                                    <input type="text" name="username" id="username" class="form-control" placeholder="User Name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                                </div>
+                                
+                                <button type="submit" href="{{ url_for('dashboard') }}" class="btn btn-primary btn-flat mb-3 m-t-30" >Sign in</button>
+                                
+                                <div class="register-link mt-3 text-center">
+                                    <p>Don't have account ? <a href="{{ url_for('signup') }}"> Sign Up Here</a></p>
+                                </div1
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+    <div id="myModal" class="modal">
+         <div class="modal-content">
+            <p id="errormsg"></p>
+            <button id="closeModelBtn">Ok</button>
+         </div>
+    </div>
+    
+<script src="/static/assets/js/lib/jquery.min.js"></script>
+<script src="/static/assets/js/lib/jquery.nanoscroller.min.js"></script>
+
+<script src="/static/assets/js/lib/menubar/sidebar.js"></script>
+<script src="/static/assets/js/lib/preloader/pace.min.js"></script>
+
+<script src="/static/assets/js/lib/bootstrap.min.js"></script>
+<script src="/static/assets/js/scripts.js"></script>
+<script src="/static/assets/js/moment.min.js"></script>
+<script src="/static/assets/js/bootstrap-datetimepicker.min.js"></script>
+
+
+
+
+
+
+
+</body>
+
+</html>
