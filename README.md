@@ -5,5 +5,8 @@ In this project,You’ll  build a web app that allows users to convert MP4 to te
   - torch, 1.8+
   - torchaudio, latest version bound to PyTorch should work
   - omegaconf, latest just should work
+  - onnx, latest just should work
+  - onnxruntime, latest just should work
+
 
 
