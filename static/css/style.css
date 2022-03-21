@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,400i,600,600i,700,700i,800|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900|Roboto:300,300i,400,400i,500,500i,700,900&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'Raleway', sans-serif;
+}
+html { 
+  height: 100%; 
+}
+body{
+	box-sizing: border-box;
+	min-height: 100vh;
+	margin: 0 auto;
+  	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+body section.wrapper{
+	width: 100%;
+}
+h1, h2, h3, h4, h5, h6 { margin: 0; }
+
+/* Tables
+================================== */
+.Rtable {
+    display: flex;
+    margin: 0 0 0.8em 0;
+    padding: 0;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.06);
+    border: 1px solid #efefef;
+    align-items: center;
+}
+.Rtable-cell {
+    box-sizing: border-box;
+    flex-grow: 1;
+    width: 100%;
+    padding: 8px 10px;
+}
+
+/*.Rtable--2cols > .Rtable-cell  { width: 50%; }
+.Rtable--3cols > .Rtable-cell  { width: 33.33%; }
+.Rtable--4cols > .Rtable-cell  { width: 25%; }
+.Rtable--5cols > .Rtable-cell  { width: 20%; }
+.Rtable--6cols > .Rtable-cell  { width: 16.6%; }
+.Rtable--4cols > .Rtable-cell { width: 16.6%; }*/
+.Rtable--4cols > .Rtable-cell:nth-child(1) { width: 40%; }
+.Rtable--4cols > .Rtable-cell:nth-child(2) {width: 20%}
+.Rtable--4cols > .Rtable-cell:nth-child(3) { width: 10%; }
+.Rtable--4cols > .Rtable-cell:nth-child(4) { width: 30%; }
+
+
+.Rtable-top-header{
+	box-shadow: none;
+	border: none;
+	margin-bottom: 10px;
+}
+.Rtable-top-header p{
+	margin-bottom: 0px;
+	font-size: 16px;
+	color: #999;
+}
+.properties-img {
+    object-fit: cover;
+    height: 70px;
+    width: 80px;
+    margin-right: 15px;
+}
+.properties h4{
+	font-size: 18px;
+}
+.status a i{
+	border: 2px solid #222;
+	border-radius: 50%;
+	height: 25px;
+	width: 25px;
+	text-align: center;
+	line-height: 22px;
+}
+.status a i.text-success{
+	border-color: #28a745!important;
+}
+.status a i.text-danger{
+	border-color: #dc3545!important;
+}
+.dropdown-option .dropdown-toggle::after{
+	display: none;
+}
+.dropdown-option .dropdown-menu a{
+	font-size: 14px;
+	font-weight: 600;
+	padding: 10px 20px;
+}
+.secList a{
+	white-space: normal;
+	text-decoration: none;
+	color: #212529;
+	font-size: 15px;
+}
+
