@@ -5,8 +5,12 @@ import datetime
 import re
 import os
 import psycopg2
+from io import StringIO
+import csv
+import Caribe as cb
+from collections import Counter
 from werkzeug.utils import secure_filename
-from flask import Flask,url_for, render_template, session, redirect, json, send_file,flash
+from flask import Flask,url_for, render_template, session, redirect, json, send_file,flash,jsonify
 from pydub import AudioSegment
 import onnx
 import torch
@@ -15,10 +19,15 @@ from omegaconf import OmegaConf
 from moviepy.editor import *
 from pydub.utils import make_chunks
 import pandas as pd
+import glob
+from pathlib import Path
+from happytransformer import TTSettings
+from happytransformer import  HappyTextToText
+from more_itertools import sliced
 
 
-app=Flask(__name__)
-upload_lcation = 'C:\\Users\\C_v\\PycharmProjects\\flask_ONNX\\static'
+app=Flask(__name__,static_folder=os.path.join(os.path.dirname(__file__),"static"))
+upload_lcation = os.path.join(os.path.dirname(__file__),"static")
 app.config["UPLOAD_FOLDER"]=upload_lcation
 
 ALLOWED_EXTENSIONS = set(['mp4'])
@@ -28,8 +37,16 @@ def allowed_file(filename):
 
 
 
+
+
+#
+# conn = psycopg2.connect(
+#    database="KDI_DB", user='postgres', password='Kditeam230', host='34.204.42.99', port= '5432'
+# )
+
+
 conn = psycopg2.connect(
-   database="KDI_DB", user='postgres', password='', host='127.0.0.1', port= ''
+   database="KDI_DB", user='postgres', password='khurram', host='127.0.0.1', port= '5432'
 )
 
 
@@ -37,7 +54,6 @@ conn = psycopg2.connect(
 conn.autocommit = True
 
 cursor = conn.cursor()
-
 
 
 @app.route('/',methods=['GET','POST'])
@@ -89,7 +105,8 @@ def signup():
     default_username='0'
     user_name=request.form.get('username',default_username)
 
-    dir_name = "C:\\Users\\C_v\\PycharmProjects\\flask_ONNX\\static\\"+user_name
+    # dir_name = app.config["UPLOAD_FOLDER"]+"//"+user_name
+    dir_name = os.path.join(app.config["UPLOAD_FOLDER"],user_name)
     try:
         os.makedirs(dir_name)
     except:
@@ -99,10 +116,21 @@ def signup():
     if len(first_name) ==1 and len(last_name)==1 and len(email)==1 and len(password)==1:
         pass
     else:
-        cursor.execute("insert into kdi_user (user_first_name, user_last_name, user_email, user_password, user_user_name) values ('{0}','{1}','{2}','{3}','{4}')".format(first_name,last_name,email,password,user_name))
+        cursor.execute('''select user_user_name from kdi_user''')
+        users=cursor.fetchall()
         conn.commit()
-        return render_template('index.html')
-    
+        user_name_list=[]
+        for i in users:
+            user_name_list.append(i[0])
+        print(user_name_list)
+        if user_name in user_name_list:
+                flash("Username is already exit")
+                return render_template('signup.html')
+        else:
+            cursor.execute("insert into kdi_user (user_first_name, user_last_name, user_email, user_password, user_user_name) values ('{0}','{1}','{2}','{3}','{4}')".format(first_name,last_name,email,password,user_name))
+            conn.commit()
+            return redirect(url_for('index'))
+
 
 
 
@@ -126,22 +154,22 @@ def dashboard():
             return redirect(request.url)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            app.config["UPLOAD_FOLDER"]="C:\\Users\\C_v\\PycharmProjects\\flask_ONNX\\static"+"\\"+username
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            # app.config["UPLOAD_FOLDER"]=app.config["UPLOAD_FOLDER"]+"\\"+username
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'],username, filename))
 
             mp3_folder=filename[:-4]
-            mp3_folder_location = "C:\\Users\\C_v\\PycharmProjects\\flask_ONNX\\static\\"+mp3_folder
+            mp3_folder_location = os.path.join(app.config["UPLOAD_FOLDER"],mp3_folder)
             try:
                 os.makedirs(mp3_folder_location)
             except:
                 print("folder already exist")
 
-            mp4_file=app.config["UPLOAD_FOLDER"]+"\\"+filename
+            mp4_file=os.path.join(app.config["UPLOAD_FOLDER"],username,filename)
 
 
             videoclip = VideoFileClip(mp4_file)
 
-            mp3_file=mp3_folder_location+"\\"+mp3_folder+".mp3"
+            mp3_file=os.path.join(app.config["UPLOAD_FOLDER"],mp3_folder,mp3_folder+".mp3")
             audioclip = videoclip.audio
             audioclip.write_audiofile(mp3_file)
 
@@ -150,21 +178,21 @@ def dashboard():
 
 
             sound = AudioSegment.from_mp3(mp3_file)
-            mp3_folder_location_wav = "C:\\Users\\C_v\\PycharmProjects\\flask_ONNX\\static\\"+mp3_folder+"wav"
+            mp3_folder_location_wav = os.path.join(app.config["UPLOAD_FOLDER"],mp3_folder+"wav")
 
             try:
                 os.makedirs(mp3_folder_location_wav)
             except:
                 print("folder already exist")
 
-            sound.export("C:\\Users\\C_v\\PycharmProjects\\flask_ONNX\\static"+"\\"+mp3_folder+"wav"+"\\"+mp3_folder+".wav", format="wav")
+            sound.export(os.path.join(app.config["UPLOAD_FOLDER"],mp3_folder+"wav",mp3_folder+".wav"), format="wav")
 
-            myaudio = AudioSegment.from_file(mp3_folder_location_wav+"\\"+mp3_folder+".wav", "wav")
+            myaudio = AudioSegment.from_file(os.path.join(app.config["UPLOAD_FOLDER"],mp3_folder+"wav",mp3_folder+".wav"), "wav")
             chunk_length_ms = 80000
             chunks = make_chunks(myaudio,chunk_length_ms)
             count=0
 
-            wav_folder_location_chunks = "C:\\Users\\C_v\\PycharmProjects\\flask_ONNX\\static\\"+mp3_folder+"chunks"
+            wav_folder_location_chunks = os.path.join(app.config["UPLOAD_FOLDER"],mp3_folder+"chunks")
 
             try:
                 os.makedirs(wav_folder_location_chunks)
@@ -175,32 +203,34 @@ def dashboard():
                 count=count+1
                 chunk_name = "{0}.wav".format(i)
                 print ("exporting", chunk_name)
-                chunk.export(wav_folder_location_chunks+"\\"+chunk_name, format="wav")
+                chunk.export(os.path.join(app.config["UPLOAD_FOLDER"],mp3_folder+"chunks",chunk_name), format="wav")
 
 
             #
             language = 'en'
-
-
             _, decoder, utils = torch.hub.load(repo_or_dir='snakers4/silero-models', model='silero_stt', language=language)
             (read_batch, split_into_batches,
              read_audio, prepare_model_input) = utils
 
             torch.hub.download_url_to_file('https://raw.githubusercontent.com/snakers4/silero-models/master/models.yml', 'models.yml')
+            print("test1")
             models = OmegaConf.load('models.yml')
             available_languages = list(models.stt_models.keys())
             assert language in available_languages
-
-            # torch.hub.download_url_to_file(models.stt_models.en.latest.onnx, 'model.onnx', progress=True)
+            print("test2")
+            #torch.hub.download_url_to_file(models.stt_models.en.latest.onnx, 'model.onnx', progress=True)
             onnx_model = onnx.load('model.onnx')
+            print("test3")
             onnx.checker.check_model(onnx_model)
-            ort_session = onnxruntime.InferenceSession('model.onnx')
+            print("test")
+            ort_session = onnxruntime.InferenceSession("model.onnx")
+            print("test")
             #
             data=[]
             print(count)
             for i in range(count):
                 i=str(i)
-                test_files = ["C:\\Users\\C_v\\PycharmProjects\\flask_ONNX\\static"+"\\"+mp3_folder+"chunks"+"\\"+i+'.wav'] #wavname
+                test_files = [os.path.join(app.config["UPLOAD_FOLDER"],mp3_folder+"chunks",i+'.wav')] #wavname
                 print(test_files)
                 batches = split_into_batches(test_files, batch_size=10)
                 input = prepare_model_input(read_batch(batches[0]))
@@ -209,9 +239,38 @@ def dashboard():
                 ort_inputs = {'input': onnx_input}
                 ort_outs = ort_session.run(None, ort_inputs)
                 decoded = decoder(torch.Tensor(ort_outs[0])[0])
+                print(decoded)
+
+
+
                 data.append(decoded)
 
             print(data)
+            correction_data=[]
+            happy_tt = HappyTextToText("T5", "vennify/t5-base-grammar-correction")
+            beam_settings =  TTSettings(num_beams=5, min_length=1, max_length=1000)
+            full_sentences=' '.join(data)
+            new_full_sentences=list(sliced(full_sentences, 200))
+
+            for dd in new_full_sentences:
+                output_text_1 = happy_tt.generate_text(dd, args=beam_settings)
+                print(output_text_1.text)
+                correction_data.append(output_text_1.text)
+
+
+
+
+            str1 = ''.join(correction_data)
+            new_str1=re.sub('([A-Z])', r' \1', str1)
+            word_freq=Counter(new_str1.split()).most_common()
+            df_freq=pd.DataFrame(word_freq,columns=["words","count"])
+
+
+
+
+
+
+
 
 
 
@@ -221,20 +280,75 @@ def dashboard():
             print(filename,mp4_file)
 
 
-            flash('Image successfully uploaded and displayed below')
+            flash('MP4 successfully uploaded and Press Download Button For The Text')
+            df=pd.DataFrame(correction_data,columns=["Text"])
+            df=pd.concat([df,df_freq],axis=1)
 
-            return render_template('dashboard.html',name=username,data=data,mm=mp4_file)
+            global new_filename
+
+            new_filename =filename[:-4]
+
+
+            #
+            df.to_csv(os.path.join(app.config["UPLOAD_FOLDER"],username,new_filename+".csv"),index=False)
+            # p="C:\\Users\\C_v\\PycharmProjects\\flask_ONNX\\static"+"\\"+username+"\\"+new_filename+".csv"
+
+            return render_template('dashboard.html',image = url_for("static", filename=username+"/"+filename),data=data,name=username)
         else:
-            flash('Allowed  types are -> MP4')
+            flash('Allowed  types are  MP4')
             return render_template('dashboard.html',name=username,)
 
         print(filename,mp4_file)
 
-        return render_template('dashboard.html',name=username)
+    return render_template('dashboard.html',name=username)
+
+@app.route('/download')
+def download():
+    if 'username' in session:
+        username= session['username']
+    try:
+
+        print(new_filename)
+        # new_filename='khu'
+        print(app.config["UPLOAD_FOLDER"])
+        p=os.path.join(app.config["UPLOAD_FOLDER"],username,new_filename+".csv")
+
+
+
+        return send_file(p,
+                        mimetype='text/csv',
+                        download_name=new_filename+'.csv')
+    except Exception as error:
+        flash('Hi Please try to Upload MP4 First')
+        return redirect(url_for("dashboard"))
+
+
+@app.route('/videos',methods=['GET','POST'])
+def videos():
+    if 'username' in session:
+        username= session['username']
+    path=os.path.join(app.config["UPLOAD_FOLDER"],username)
+    print(path)
+    all_files = glob.glob(os.path.join(path , "*.mp4"))
+
+    data=[]
+    print(all_files)
+    for filename in all_files:
+        my_path=Path(filename)
+        filename=my_path.name
+        data.append(filename)
+        print(data)
+
+            # return render_template('videos.html',name=username,image = url_for("static", filename=username+"/"+filename))
+
+
+    return render_template('videos.html',name=username,image=data)
+
 
 
 
 
 if __name__ == '__main__':
     app.secret_key='123'
-    app.run(debug=True)
+    app.url_map.strict_slashes = True
+    app.run(host="0.0.0.0",debug=True)
