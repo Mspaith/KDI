@@ -187,7 +187,7 @@ body {
 
   <div class="search-container">
   
-    <form action="/action_page.php">
+    <form action="" method="post">
       <input type="text" placeholder="Search.." name="search">
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
@@ -200,17 +200,30 @@ body {
     {% for i in image %}
 
         <li>
-		 <video style="margin-left: 70% " width="340" height="180" controls>
+		<br>
+		 <video style="margin-left: 20% " width="340" height="180" controls>
 		<source  src={{ url_for('static', filename="admin"+"/"+i) }} type="video/mp4"></source>
 
 		</video>
         </li>
-			        <p style="margin-left: 70%">{{i}}</p>
+			        <p style="margin-left: 20%">{{i}}</p>
 
     {% endfor %}
 	
   </ul>
-  
+  {% if search_video %}
+
+	<div style="margin-left: 10% " width="340" height="180">
+	<br>
+		 <video style="margin-left: 10% " width="340" height="180" controls>
+		<source  src={{ url_for('static', filename="admin"+"/"+search_video) }} type="video/mp4"></source>
+		</video>
+
+	</div>
+
+	{% endif %}
+
+
   </form>
 
 
