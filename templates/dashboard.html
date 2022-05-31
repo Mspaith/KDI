@@ -4,21 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>DashBoards</title>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-    <script src="https://code.highcharts.com/highcharts-more.js"></script>
-    <link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet" />
-    <link href="/static/css/datatables.min.css" rel="stylesheet">
-    <link href="/static/css/fSelect.css" rel="stylesheet">
+    <link  href="{{url_for('static',filename='css/fSelect.css')}}" rel="stylesheet">
     
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta http-equiv="X-UA-Compatible" content="IE=7">
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link rel="shortcut icon" href="/static/assets/images/favicon.ico">
+<link rel="shortcut icon"  href="{{url_for('static',filename='assets/images/favicon.ico')}}" >
 
 <!-- Retina iPad Touch Icon-->
 <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
@@ -29,19 +22,57 @@
 <!-- Standard iPhone Touch Icon-->
 <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
 <!-- Styles -->
-<link href="/static/assets/css/lib/calendar2/pignose.calendar.min.css" rel="stylesheet">
-<link href="/static/assets/css/lib/chartist/chartist.min.css" rel="stylesheet">
-<link href="/static/assets/css/lib/font-awesome.min.css" rel="stylesheet">
-<link href="/static/assets/css/lib/themify-icons.css" rel="stylesheet">
-<link href="/static/assets/css/lib/owl.carousel.min.css" rel="stylesheet" />
-<link href="/static/assets/css/lib/owl.theme.default.min.css" rel="stylesheet" />
-<link href="/static/assets/css/lib/weather-icons.css" rel="stylesheet" />
-<link href="/static/assets/css/lib/menubar/sidebar.css" rel="stylesheet">
-<link href="/static/assets/css/lib/bootstrap.min.css" rel="stylesheet">
-<link href="/static/assets/css/lib/helper.css" rel="stylesheet">
-<link href="/static/assets/css/style.css" rel="stylesheet">
-    <link href="/static/assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900|Poppins:100,200,300,400,500,600,700,800,900|Quicksand:300,400,500,600,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/style.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/bootstrap-datetimepicker.min.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/helper.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/bootstrap.min.css')}}">	
+
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/bootstrap.min.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/calendar2/pignose.calendar.min.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/chartist/chartist.min.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/font-awesome.min.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/themify-icons.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/owl.carousel.min.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/owl.theme.default.min.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/weather-icons.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/menubar/sidebar.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/bootstrap-datetimepicker.min.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/menuebar/sidebar.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/bootstrap-datetimepicker.min.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/style.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/helper.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/weather-icons.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/owl.theme.default.min.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/owl.carousel.min.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/themify-icons.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/chartist/chartist.min.css')}}">	
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/lib/helper.css')}}">	
+
+
+	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900|Poppins:100,200,300,400,500,600,700,800,900|Quicksand:300,400,500,600,700&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -51,18 +82,19 @@
             <div class="nano">
                 <div class="nano-content">
                     <ul>
-                        <div class="logo"><a href="/index"> <img src="/static/assets/images/logo.png" alt="logo" class="logo-large"/><img src="/static/assets/images/logo-mini.png" alt="logo" class="mini-logo" /></a></div>
+                        <div class="logo"><a href="{{ url_for('dashboard') }}"> 
+						<img src="{{url_for('static', filename='assets/images/logo.png')}}" alt="logo" class="logo-large"/>
+						<img src="{{url_for('static', filename='assets/images/logo-mini.png')}}"  alt="logo" class="mini-logo" /></a></div>
 
                         
 
-                            <li><a href="sidebar-sub-toggle"><i class="ti-bar-chart"></i>Dashboards</a></li>
+                            <li><a href="{{ url_for('dashboard') }}"><i class="ti-bar-chart"></i>Dashboards</a></li>
                             
-							<li><a href="sidebar-sub-toggle"><i class="ti-credit-card"></i>Utilities</a></li>
+                            <li><a href="{{ url_for('videos') }}"><i class="ti-bar-chart"></i>Videos</a></li>
 
                         
-                            <li><a href="profile.settings"><i class="ti-settings"></i>Your Profile</a></li>
                         
-                        <li><a href="/logout"><i class="ti-close"></i>Logout</a></li>
+                        <li><a href="{{ url_for('index') }}"><i class="ti-close"></i>Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -78,23 +110,10 @@
                     </div>
                     <div class="float-right">
                         <div class="dropdown dib">
-                            <div class="header-icon" data-toggle="dropdown">
+                            <div class="header-icon">
                                 <span class="user-avatar">Welcome:
-                                    {{name}}<i class="ti-angle-down f-s-10"></i>
+                                    {{name}}
                                 </span>
-                                <div class="drop-down dropdown-profile dropdown-menu dropdown-menu-right">
-                                    <div class="dropdown-content-body">
-                                        <ul>
-                                            <li>
-                                                <a href="#" onclick="openChangePwd()">
-                                                    <i class="ti-user"></i>
-                                                    <span>Change Password</span>
-                                                </a>
-                                            </li>
-                                            <li><a href="#" onclick="loadURL('logout')"><i class="ti-close"></i>Logout</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -103,101 +122,42 @@
         </div>
     </div>
 <div class="row">
-<form style="  margin-left: 20%" action="/dashboard" method="post" enctype="multipart/form-data">
+<form style="margin-left: 20%" action="/dashboard" method="post" enctype="multipart/form-data">
 			<dl>
             <p style="margin-top: -3%">
                 <input type="file" name="file1" class="form-control" autocomplete="off" required>
             </p>
         </dl>
-        <p style="margin-top: -17%">
-            <input style="margin-left: -10%" href="{{ url_for('dashboard') }}" type="submit" value="Submit" class="btn btn-info">
+        <p style="margin-top: -12%">
+            <input style="margin-left: -10%;padding:10px" href="{{ url_for('dashboard') }}" type="submit" value="Upload MP4" class="btn btn-info">
         </p>
+		
+    <a style="margin-left: 55% ;margin-top: -19%; padding:10px" class="btn btn-info" href="{{url_for('download')}}">Download CSV</a>
 
 </form>
    </div>
+
+
+ <video style="margin-left: 70% ; margin-top: -12%" width="340" height="180" controls>
+    <source  src="{{image }}" type="video/mp4"></source>
+    Your browser does not support the video tag.
+  </video>
 
 <div class="row" style="  padding-left: 21%">
 
 {{data}}
 </div>
 
- <video style="  margin-left: 60%" width="320" height="240" controls>
-    <source src={{ url_for('static', filename="") }} type="video/mp4"></source>
-    Your browser does not support the video tag.
-  </video>
+{%- with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <script>
+            alert('{{ message }}');
+            </script>
+        {% endfor %}
+    {% endif %}
+{% endwith -%}
 
-
-
-<script>
-
-    var modal_changepwd = document.getElementById('changepwd');
-    function loadURL(url) {
-        window.location.replace(url);
-    }
-
-    function closechangePwd(){
-        modal_changepwd.style.display = "none";
-    }
-
-    function changePwd() {
-        var oldpassword = $('#oldpassword').val();
-        var newpassword = $('#newpassword').val();
-        if(oldpassword === '' || newpassword === ''){
-            $('#msgchangepwd').html('Please enter both old and new password');
-            return false;
-        }
-
-        $.ajax({
-            type: "GET",
-            cache: 'false',
-            url: "/changepassword",
-            data: {oldpassword: oldpassword, newpassword: newpassword},
-            success: function (result) {
-                console.log('result:'+result);
-                if (result === 'noexist') {
-                    $('#msgchangepwd').html("Old password is incorrect...!");
-                }
-                else if (result === 'failed') {
-                    $('#msgchangepwd').html("System busy. Please try it later");
-                }
-                else{
-                    console.log('result    :'+result);
-                    location.replace("/login");
-                }
-            }
-        });
-    }
-    
-    function openChangePwd(){
-        modal_changepwd.style.display = "block";
-    }
-
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12 billgraph">
-                    <div id="container_profit" class="billgraph-graph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-                    <br>
-                    <div id="container_bubble" class="billgraph-graph"   style="min-width: 310px; min-height: 400px; margin: 0"></div>
-                    <br>
-                    <div id="container_bar" class="billgraph-graph"   style="min-width: 310px; min-height: 400px; margin: 0"></div>
-                    <br>
-                    <div class="graphtable-main">
-                        <table id="graphtable" class="table graphtable w-100">
-                            <thead id="tablehead">
-
-                            </thead>
-                            <tbody id="tablebody">
-
-                            </tbody>
-                        </table>
-                    </div>
-                    <br>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
 
 <script src="/static/assets/js/lib/jquery.min.js"></script>
@@ -218,19 +178,6 @@
 
 
 
-
-<script>
-    window.onload= function(){
-        $("#loader").hide();
-    }
-</script>
-<script src="/static/js/datatables.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
-<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
-<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
-<script type="text/javascript" src="/static/js/fSelect.js"></script>
 
 
 </html>
