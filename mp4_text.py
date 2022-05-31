@@ -41,12 +41,12 @@ def allowed_file(filename):
 
 #
 # conn = psycopg2.connect(
-#    database="KDI_DB", user='postgres', password='Kditeam230', host='34.204.42.99', port= '5432'
+#    database="", user='postgres', password='', host='34.204.42.99', port= '5432'
 # )
 
 
 conn = psycopg2.connect(
-   database="KDI_DB", user='postgres', password='khurram', host='127.0.0.1', port= '5432'
+   database="", user='postgres', password='', host='127.0.0.1', port= '5432'
 )
 
 
