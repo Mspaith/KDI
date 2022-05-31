@@ -339,6 +339,18 @@ def videos():
         data.append(filename)
         print(data)
 
+    default_video_name='0'
+    video_name=request.form.get('search',default_video_name)
+
+    for i in data:
+        print(i)
+        if i==video_name:
+            print(i)
+            return render_template('videos.html',name=username,search_video=video_name)
+
+
+
+
             # return render_template('videos.html',name=username,image = url_for("static", filename=username+"/"+filename))
 
 
