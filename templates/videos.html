@@ -7,6 +7,15 @@
     <title>DashBoards</title>
     <link  href="{{url_for('static',filename='css/fSelect.css')}}" rel="stylesheet">
     
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">
+	</script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">
+	</script>
+
+	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+		rel="stylesheet" type="text/css" />
+
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -14,15 +23,6 @@
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link rel="shortcut icon"  href="{{url_for('static',filename='assets/images/favicon.ico')}}" >
 
-<!-- Retina iPad Touch Icon-->
-<link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
-<!-- Retina iPhone Touch Icon-->
-<link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
-<!-- Standard iPad Touch Icon-->
-<link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
-<!-- Standard iPhone Touch Icon-->
-<link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
-<!-- Styles -->
 	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/style.css')}}">	
 
 	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/bootstrap-datetimepicker.min.css')}}">	
@@ -188,7 +188,7 @@ body {
   <div class="search-container">
   
     <form action="" method="post">
-      <input type="text" placeholder="Search.." name="search">
+	<input name ="search" type="text" id="tags">
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
   </div>
@@ -234,26 +234,20 @@ body {
 </div>
 
 
+	<script>
+$( function() {
+	var availableTags = [
+		{% for language in languages %}
+			"{{language}}",
+		{% endfor %}
+	];
+	$( "#tags" ).autocomplete({
+	source: availableTags
+	});
+} );
+</script>
+
+
 </body>
-
-<script src="/static/assets/js/lib/jquery.min.js"></script>
-<script src="/static/assets/js/lib/jquery.nanoscroller.min.js"></script>
-<!-- nano scroller -->
-<script src="/static/assets/js/lib/menubar/sidebar.js"></script>
-<script src="/static/assets/js/lib/preloader/pace.min.js"></script>
-<!-- sidebar -->
-
-<script src="/static/assets/js/lib/bootstrap.min.js"></script>
-<script src="/static/assets/js/scripts.js"></script>
-<script src="/static/assets/js/moment.min.js"></script>
-<script src="/static/assets/js/bootstrap-datetimepicker.min.js"></script>
-
-<!-- bootstrap -->
-
-
-
-
-
-
 
 </html>
