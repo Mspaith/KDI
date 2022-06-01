@@ -346,7 +346,7 @@ def videos():
         print(i)
         if i==video_name:
             print(i)
-            return render_template('videos.html',name=username,search_video=video_name)
+            return render_template('videos.html',name=username,search_video=video_name,languages=data)
 
 
 
@@ -354,7 +354,7 @@ def videos():
             # return render_template('videos.html',name=username,image = url_for("static", filename=username+"/"+filename))
 
 
-    return render_template('videos.html',name=username,image=data)
+    return render_template('videos.html',name=username,image=data,languages=data)
 
 
 
