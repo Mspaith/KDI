@@ -24,8 +24,13 @@ By default, flask will run on port 5000.
 
 Navigate to URL http://127.0.0.1:5000/ (or) http://localhost:5000
 
-You should be able to view the signin page.First the user have to jump into the signup page and put their requried cridentials 
-and then  jump into the signin page after the sucessful signin the user will be redirect into the dashboard page.On dashboard page the user have to insert the mp4.Using moviepy convert the mp4 into mp3 then i audioseqmet to convert mp3 into wav and split the wav file into the multipal chunks  the reason the get the optimization from the model the shorter the wav length the quicker the result we get.i used  silero model as [onnx](https://github.com/snakers4/silero-models) which  convert the wav into text for the grammmer correction i use T5 grammer correction model  and  the user will get the text to down also i did word  count in the CSV file user will get the text with word count.
+You should be able to view the signin page.
+1.) First the user have to jump into the signup page and put their requried cridentials 
+and then  jump into the signin page after the sucessful signin. The user will be redirect into the dashboard page. 
+2.)On dashboard page the user has to insert the mp4.Using moviepy to convert the mp4 into mp3. 
+3.)Then using the library audioseqmet to convert mp3 into wav and split the wav file into multipal chunks. The reasoning is to get the best optimization from the model. The shorter the wav length the quicker results we get. 
+4.) We use the silero model as [onnx](https://github.com/snakers4/silero-models) to convert the wav into text for grammmer correction.
+5.) We use the T5 grammer correction model to allow the user to download the text. Included in the T5 model is word count located in the CSV file. Users will get the text with word count.
 
 
 
