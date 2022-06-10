@@ -25,7 +25,7 @@ By default, flask will run on port 5000.
 Navigate to URL http://127.0.0.1:5000/ (or) http://localhost:5000
 
 You should be able to view the signin page.First the user have to jump into the signup page and put their requried cridentials 
-and then  jump into the signin page after the sucessful signin the user will be redirect into the dashboard page.On dashboard page the user have to insert the mp4.Using moviepy convert the mp4 into mp3 then i audioseqmet to convert mp3 into wav and split the wav file into the multipal chunks  the reason the get the optimization from the model the shorter the wav length the quicker the result we get.we used  silero model as onnx( [to](https://github.com/snakers4/silero-models) convert wav into the 
+and then  jump into the signin page after the sucessful signin the user will be redirect into the dashboard page.On dashboard page the user have to insert the mp4.Using moviepy convert the mp4 into mp3 then i audioseqmet to convert mp3 into wav and split the wav file into the multipal chunks  the reason the get the optimization from the model the shorter the wav length the quicker the result we get.we used  silero model as [onnx](https://github.com/snakers4/silero-models) convert wav into the 
 
 
 
