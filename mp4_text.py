@@ -24,6 +24,12 @@ from pathlib import Path
 from happytransformer import TTSettings
 from happytransformer import  HappyTextToText
 from more_itertools import sliced
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+import  seaborn as sns
+from nltk.corpus import stopwords
+stop = stopwords.words('english')
 
 
 app=Flask(__name__,static_folder=os.path.join(os.path.dirname(__file__),"static"))
@@ -39,16 +45,9 @@ def allowed_file(filename):
 
 
 
-#
-# conn = psycopg2.connect(
-#    database="", user='postgres', password='', host='34.204.42.99', port= '5432'
-# )
-
 
 conn = psycopg2.connect(
-   database="", user='postgres', password='', host='127.0.0.1', port= '5432'
-)
-
+   database="KDI_DB", user='postgres', password='', host='127.0.0.1', port= '5432')
 
 
 conn.autocommit = True
@@ -266,6 +265,31 @@ def dashboard():
             df_freq=pd.DataFrame(word_freq,columns=["words","count"])
 
 
+            cursor.execute("select video_name from video_words where video_name=%s",(filename,))
+            video_name=cursor.fetchall()
+            conn.commit()
+            print(video_name,filename)
+
+            video_name_list=[]
+            for i in video_name:
+                for j in i:
+                    video_name_list.append(j)
+            print(video_name_list)
+
+
+
+
+            for i in word_freq:
+                if filename in video_name_list:
+                    pass
+                else:
+                    cursor.execute("insert into video_words (video_name, video_words, words_count) values (%s,%s,%s);",(filename,i[0],str(i[1])))
+            conn.commit()
+
+
+
+
+
 
 
 
@@ -342,11 +366,65 @@ def videos():
     default_video_name='0'
     video_name=request.form.get('search',default_video_name)
 
+    cursor.execute("select video_words, words_count from video_words where video_name=%s",(video_name,))
+    words_count_data=cursor.fetchall()
+    words_count_list=[]
+    for i in words_count_data:
+        words_count_list.append(i)
+    new_df=pd.DataFrame(words_count_list,columns=["words","count"])
+    df=new_df.head(5)
+    df["count"]=df["count"].astype(str).astype('int64')
+    words = df["words"].to_numpy()
+    count = df["count"].to_numpy()
+
+    fig1, ax1 = plt.subplots()
+    ax1.bar(words, count,color='g')
+    plt.xlabel("Words")
+    plt.ylabel("Count")
+    plt.title("Top 5 words with occurance")
+    figure_loc=os.path.join(path,video_name+".png")
+    fig1.savefig(figure_loc,format="png")
+    plt.close(fig1)
+
+
+    new_df["words"]= new_df["words"].apply(lambda x: ' '.join([word for word in x.split() if word not in (stop)]))
+    new_df["words"]=new_df["words"].str.strip()
+    new_df = new_df.replace(r'^s*$', float('NaN'), regex = True)
+    new_df=new_df.dropna()
+    new_df=new_df.head(5)
+    imp_words = new_df["words"].to_numpy()
+    imp_count = new_df["count"].to_numpy()
+
+    fig2, ax2 = plt.subplots()
+    ax2.bar(imp_words, imp_count,color='r')
+    plt.xlabel("Words")
+    plt.ylabel("Count")
+    plt.title("Top 5 Meaningful words")
+    figure_loc_1=os.path.join(path,video_name+"1.png")
+    fig2.savefig(figure_loc_1,format="png")
+    plt.close(fig2)
+
+
+
+
+
+
+
+
     for i in data:
         print(i)
         if i==video_name:
             print(i)
-            return render_template('videos.html',name=username,search_video=video_name,languages=data)
+            print(video_name)
+
+            # figure_loc=os.path.join(path,video_name+".png")
+            # plot1.savefig(figure_loc,format="png")
+            #
+            #
+            # figure_loc_1=os.path.join(path,video_name+"1.png")
+            # plot2.savefig(figure_loc_1,format="png")
+
+            return render_template('videos.html',name=username,search_video=video_name,languages=data,new_df=new_df)
 
 
 
