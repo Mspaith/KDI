@@ -213,13 +213,18 @@ body {
   </ul>
   {% if search_video %}
 
-	<div style="margin-left: 10% " width="340" height="180">
+	<div style="margin-left: 12% " width="300" height="180">
 	<br>
 		 <video style="margin-left: 10% " width="340" height="180" controls>
 		<source  src={{ url_for('static', filename="admin"+"/"+search_video) }} type="video/mp4"></source>
 		</video>
+					        <p style="margin-left: 20%">{{search_video}}</p>
 
-	</div>
+		<img src={{url_for('static', filename="admin"+"/"+search_video+".png")}} style="margin-left: 50% ;margin-top: -19%"  width="500" height="350" />
+
+		<img src={{url_for('static', filename="admin"+"/"+search_video+"1.png")}} style="margin-left: 6% ;margin-top: -11%"  width="500" height="350" />
+
+		</div>
 
 	{% endif %}
 
@@ -230,7 +235,9 @@ body {
 
 <div class="row" style="  padding-left: 21%">
 
-{{data}}
+</div>
+    <div class="row" style="  padding-left: 21%">
+
 </div>
 
 
