@@ -33,8 +33,9 @@ This project has 3 major parts :
 The local setup can be done for all components. In order to test the full set up, this must be done locally in some capacity. For now we will set up all components including AWS cloud and containerizing implimentation. 
 
 # Pre-Rec:
-. Python and Virtual Environmeent Installation
-.  Pre-recs for AWS, is setting it up
+- Python and Virtual Environmeent Installation
+- Pre-recs for AWS, is setting it up
+- User must install Filezilla to upload the code in the backend AWS server
 
 # Running the project
 
