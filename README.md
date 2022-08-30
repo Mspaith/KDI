@@ -14,11 +14,13 @@ The project was to build a purpose-built video Archives platform that will allow
   - onnx, latest just should work
   - onnxruntime, latest just should work
 
-# Project Structure
+# Architecture 
 This project has 3 major parts :
 - mp4_text.py - This contains pre train mode onnx that receives wav file which is converted into the text
 - template - This folder contains the HTML template (index.html,signup.html,dashboard.html)
 - static - This folder contains the css folder with style files
+[KDI USER FLOW.pdf](https://github.com/Mspaith/KDI/files/9455707/KDI.USER.FLOW.pdf)
+
 
 ## For Developers:
 . Comprehensive Documentation begins in the Developer Guide
