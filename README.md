@@ -21,6 +21,9 @@ This project has 3 major parts :
 - static - This folder contains the css folder with style files
 [KDI USER FLOW.pdf](https://github.com/Mspaith/KDI/files/9455707/KDI.USER.FLOW.pdf)
 
+<img width="878" alt="Screen Shot 2022-08-30 at 1 46 49 PM" src="https://user-images.githubusercontent.com/53205087/187518336-c627fefc-bdc0-4370-a4f3-7d98f8844136.png">
+
+
 
 ## For Developers:
 . Comprehensive Documentation begins in the Developer Guide
