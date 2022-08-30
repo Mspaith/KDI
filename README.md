@@ -17,6 +17,17 @@ This project has 3 major parts :
 - template - This folder contains the HTML template (index.html,signup.html,dashboard.html)
 - static - This folder contains the css folder with style files
 
+## For Developers:
+. Comprehensive Documentation begins in the Developer Guide
+. To run locally, see project instructions above.
+
+## Quick Start
+The local setup can be done for all components. In order to test the full set up, this must be done locally in some capacity. For now we will set up all components including AWS cloud and containerizing implimentation. 
+
+# Pre-Rec:
+. Python and Virtual Environmeent Installation
+.  Pre-recs for AWS, is setting it up
+
 # Running the project
 
 - Ensure that you are in the project home directory.Run mp4_text.py using below command to start Flask Project
@@ -34,8 +45,6 @@ You should be able to view the signin page.
 - 3)Then using the library audioseqmet to convert mp3 into wav and split the wav file into multipal chunks. The reasoning is to get the best optimization from the model. The shorter the wav length the quicker results we get. 
 - 4) We use the silero model as [onnx](https://github.com/snakers4/silero-models) to convert the wav into text for grammmer correction.
 - 5) We use the T5 grammer correction model to allow the user to download the text. Included in the T5 model is word count located in the CSV file. Users will get the text with word count.
-
-
 
 
 
