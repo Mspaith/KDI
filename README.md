@@ -36,6 +36,9 @@ The local setup can be done for all components. In order to test the full set up
 - Python and Virtual Environmeent Installation
 - Pre-recs for AWS, is setting it up
 - User must install Filezilla to upload the code in the backend AWS server
+-     Using sfttp protocol wit the following host ID:  54.196.228.231 
+-     Port MS is 22
+- Upload files to Filezilla and connect to AWS
 
 # Running the project
 
