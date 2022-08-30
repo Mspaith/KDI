@@ -47,6 +47,13 @@ You should be able to view the signin page.
 - 5) We use the T5 grammer correction model to allow the user to download the text. Included in the T5 model is word count located in the CSV file. Users will get the text with word count.
 
 
+## Research Summary 
+This project reduces the the practise and continued data that is delivered in the KDI bi weekly exchanges to better see trends and patter of particular design venecular. 
+
+# Contact 
+Implimentation and Model: Paith Philemon
+Business: Eugene Park
+
 
 
 
