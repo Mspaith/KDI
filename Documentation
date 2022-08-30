@@ -1,1 +1,292 @@
 
+Each year, the college hosts the Kusske Lecture & Dialogue Series, which features highly accomplished designers whose work demonstrates phenomenal vision and outcomes. With its biweekly recurrence, the KDI Exchange creates a regular flow of conversation to facilitate collaboration across disciplines.  As part of this initiative came the aim to Archive the bi-weekly sessions in order to enable users to capture, manage and search collections of digital content without any technical expertise or hosting facilities.
+Paith as part of The Kusske Design Initiative (KDI). As part of that valuable teaching and research experience for graduate students to help them grow in their career. It comes with the opportunity to attend all KDI events, actively participate in ongoing dialogues that KDI events and programs generate, and reflect KDI themes in my own creative work and in others’ work that you support. 
+The project was to build a purpose-built video Archives platform that will allow us to seamlessly stream KDI content, without having to use excel spreadsheet, code or hire a developer. Furthermore, to explore the opportunity of a language learning model that can understand design vernacular using graph databases to see and compare nuances. 
+
+### Research
+There are many research activities that are eligible for the natural language processing results we aim to achieve. In addition to studies involving AI, Machine learning, NLP studies involving the computer’s ability and program to process their respective inputs. At some point in processing, the input is converted to code that the computer can understand. NLP enables computers to understand natural language as humans do. The main benefit of NLP is that it improves the way humans and computers communicate with each other. The most direct way to manipulate a computer is through code -- the computer's language. By enabling computers to understand human language, interacting with computers becomes much more intuitive for humans.
+
+Some of the main functions and reasoning for natural language processing algorithms are: 
+Text classification - This involves assigning tags to texts to put them in categories. This can be useful for sentiment analysis, which helps the natural language processing algorithm determine the sentiment, or emotion behind a text. 
+Text extraction - This involves automatically summarizing text and finding important pieces of data. One example of this is keyword extraction, which pulls the most important words from the text, which can be useful for search engine optimization. Doing this with natural language processing requires some programming -- it is not completely automated. 
+Machine translation - This is the process by which a computer translates text from one language, such as English, to another language, such as French, without human intervention. 
+Natural language generation - This involves using natural language processing algorithms to analyze unstructured data and automatically produce content based on that data
+
+With the KDI bi- weekly exchange archived video’s and research being done on natural language processing both revolves around search, especially Enterprise search. This involves having users query data sets in the form of a question that they might pose to another person. The machine interprets the important elements of the human language design sentence, which correspond to specific features in a data set, and returns an answer. NLP can be used to interpret free, unstructured design nuances and make it analyzable.
+
+## Techniques and Methods 
+The techniques and methods of  natural language processing will use Syntax and semantic analysis as the two main techniques used with natural language processing. Syntax is the arrangement of words in a sentence to make grammatical sense. NLP uses syntax to assess meaning from a language based on grammatical rules. Syntax techniques include: 
+Parsing -  This is the grammatical analysis of a sentence. Example: A natural language processing algorithm is fed the sentence, "The Professor coughed." Parsing involves breaking this sentence into parts of speech -- i.e., professor = noun, coughed = verb. This is useful for more complex downstream processing tasks. 
+Word segmentation - This is the act of taking a string of text and deriving word forms from it. Example: A person molds the segments into art. The algorithm would be able to analyze the page and recognize that the words are divided by white spaces. 
+Sentence breaking - This places sentence boundaries in large texts. Example: A natural language processing algorithm is fed the text, "The Professor showed his art and I cried" The algorithm can recognize the period that splits up the sentences using sentence breaking. Morphological segmentation. This divides words into smaller parts called morphemes. Example: The word untestably would be broken into [[un[[test]able]]ly], where the algorithm recognizes "un," "test," "able" and "ly" as morphemes. This is especially useful in machine translation and speech recognition. 
+Stemming - This divides words with inflection in them into root forms. Example: In the sentence, "The dog barked," the algorithm would be able to recognize the root of the word "barked" is "bark." This would be useful if a user was analyzing design for all instances of the art, as well as all of its conjugations. The algorithm can see that they are essentially the same word even though the letters are different. 
+Semantics involves the use of and meaning behind words.Natural language processing applies algorithms to understand the meaning and structure of sentences. Semantics techniques include: 
+Word sense disambiguation. This derives the meaning of a word based on context. Example: Consider the sentence, "The art is oil painting" The word oil has different meanings. An algorithm using this method can understand that the use of the word oil here refers to art products , not a car oil implement. Named entity recognition. This determines words that can be categorized into groups. 
+Using the semantics of the text, it would be able to differentiate between entities that are visually the same. This uses a database to determine semantics behind words and generate new text. 
+
+Current approaches to natural language processing are based on deep learning, a type of AI that examines and uses patterns in data to improve a program's understanding. Deep learning models require massive amounts of labeled data for the natural language processing algorithm to train on and identify relevant correlations, and assembling this kind of big data set is one of the main hurdles to natural language processing.
+
+This research allowed the exploration of many methods to build a purpose-built video Archives platform that will allow us to seamlessly stream KDI content, without having to use an Excel spreadsheet or needed code.  The simpler machine learning algorithms were told what words and phrases to look for in text and given specific responses when those phrases appeared. But deep learning is a more flexible, intuitive approach in which algorithms learn to identify speakers' intent from many examples -- almost like how a child would learn human language.
+
+Implementation 
+You will need access to the latest version of Python for your system. Your Python journey is just beginning. In this documentation, you will learn how to: install the latest version of Python on Windows, macOS, and Linux, use Python on the Web with online interpreters in order to get started programming in Python! Depending on how you installed Python, there might be other mechanisms available to you for installing pip such as using Linux package managers.
+
+The main benefit of NLP is that it improves the way humans and computers communicate with each other. The most direct way to manipulate a computer is through code -- the computer's language. By enabling computers to understand human language, interacting with computers becomes much more intuitive for humans.
+
+Terminal 
+To check if you already have Python on your Windows machine, first open a command-line application, such as cmd.exe, Windows Terminal, or PowerShell.
+
+Virtual Environment
+Python “Virtual Environments” allow Python packages to be installed in an isolated location for a particular application, rather than being installed globally. It is recommended to learn about what virtual environments are and how to use them. They have their own installation directories and they don’t share libraries with other virtual environments and will be the recommended method. 
+
+Pip Install
+pip is the package installer and  recommended installer for Python. It can be used to install packages from the Python Package Index and other indexes. To get started with using pip, you should install Python on your system or to check type this command in your terminal while in your virtual environment.
+
+.$ python --version
+Python 3.N.N
+$ python -m pip --version
+pip X.Y.Z from ... (python 3.N.N)
+
+If that worked, congratulations! You have a working pip in your environment and can now create or move files. If you have an output that does not look like the sample above, please read the Installation page. It provides guidance on how to install pip within a Python environment that doesn’t have it.
+
+Pip is a thing that installs packages, pip itself is a package that someone might want to install, especially if they're looking to run this get-pip.py script. Pip has a lot of code to deal with the security of installing packages, various edge cases on various platforms, and other such "tribal knowledge" that has been encoded in its code base. Because of this we basically include an entire copy of pip inside this blob. We do this because the alternatives are to implement a "minipip" that probably doesn't do things correctly and has weird edge cases, or compress pip itself down into a single file.
+
+Install Python
+Before you start, you will need Python on your computer.
+Check whether you already have an up to date version of Python installed by entering python in a command line window. If you see a response from a Python interpreter it will include a version number in its initial display
+Windows
+The most popular installation methods in a Windows environment. If you want to install it in the WSL, then you can read the Linux section of this tutorial after you’ve installed the Linux distribution of your choice.
+
+## MACoS
+There are two ways to install the official Python distribution on macOS: The official installer: This method involves downloading the official installer from the Python.org website and running it on your machine. The Homebrew package manager: This method involves downloading and installing the Homebrew package manager documentation if you don’t already have it installed, and then typing a command into a terminal application. Homebrew installs the stuff you need that Apple (or your Linux system) didn’t and installs packages to their own directory and then symlinks their files into /usr/local (on macOS Intel). Paste this command  in a macOS Terminal or Linux shell prompt;
+ /bin/bash -c "$(curl -fsSL     https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+You now have Homebrew installed - this script explains what it will do and then pauses before it does it. If interested, read about other installation options. The Homebrew package manager is a popular method for installing Python on macOS because it’s easy to manage from the command line and offers commands to upgrade Python without having to go to a website. Because Homebrew is a command-line utility, it can be automated with bash scripts. 
+
+PyAdmin is software to control the execution (run, stop, restart) of software like Apache and database servers through a simple graphical interface. If you have windows the admin.py file is used to display your models in the Django admin panel in case you are working with platforms such as Gnu/Linux. Django-admin is Django’s command-line utility for administrative tasks.
+
+## PyCharm 
+PyCharm is a dedicated Python Integrated Development Environment (IDE) providing a wide range of essential tools for Python developers, tightly integrated to create a convenient environment for productive Python, web, and data science development.
+
+Deciding which integrated development environment (IDE) or editor to use can be a challenge, and while there are several IDEs and code editors available for Python, PyCharm and VS Code have remained favorites of Python developers over the years. PyCharm and VS Code are both excellent tools for writing Python code. However, it is vital to note that while PyCharm is an IDE, VS Code is a code editor that provides a similar experience to an IDE through extensions. PyCharm provides smart code completion, code inspections, on-the-fly error highlighting and quick-fixes, along with automated code refactorings and rich navigation capabilities. Recommended for this particular use case.
+Operating System
+For this project we will be using the python framework and flask to Install the correct packages on to our virtual environments.
+pip3 install flask
+pip3 install requests
+pip3 install pydub
+Pip3 install onnx
+Pip3 install torch
+pip3 install onnxruntime
+pip install psycopg2-binary
+
+## User Flow
+Our objective is to convert a video file (.MP4 video of more than 1 hour in length) into the text for the first iteration. The first step will be to convert .MP4files into the .MP3 format in order to use Moviepy libraries from the python packages. This will allow us to get the MP3 files to then later begin our second step converting these .MP3 files into .WAV Files.
+
+When the user sign’s up on the backend 1 folder will be generated using their username 
+(it must be a unique) name for storing the videos.We will use TF-IDF to get what keywords matter and extract that from the text in order to move to the next step. Using the .WAV files we must use a format called a PYDUB library and split the wav file into the multiple wav files because we are using model Silero_stt (Onyyx Model) of all the conversion (MP4 then MP3 than WAV) our model Silero_stt(onnx) is taking input in the wav format. Using the Onnx model allows us to split the Wav files to get efficiency. We are working with video files of up to an hour in length which has proven to take a lot of time to process but if we input a 5 minute or 10 minutes’ wav file then it will take just a few seconds to process.
+
+After getting the text we use a pre-trained model vennify/t5-base-grammar-correction to detect the wrong grammar from the data first then correct the incorrect grammar to then send that text to our frontend hosted on AWS.
+
+
+AWS 
+Amazon Comprehend, a natural language processing service which extracts key phrases, places, peoples’ names, brands, events, and sentiment from unstructured text. Comprehend – which is powered by sophisticated deep learning models trained by AWS – allows any developer to add natural language processing to their applications without requiring any machine learning skills.
+
+For our particular use case AWS offers a range of machine learning-based language services that allow companies to easily add intelligence to their AI applications through pre-trained APIs for speech, transcription, translation, text analysis, and chatbot functionality. By converting audio input into text, Amazon Transcribe lets you build text analytics applications that can search and analyze voice input. And Amazon Comprehend can help facilitate advanced text mining, using natural language processing to establish structure in unstructured text to enable further analysis.
+
+We will be using Ubuntu servers as part of the AWS developer tools for linux and MacoS environments.  Ubuntu Pro for AWS is a premium image designed by Canonical optimized for production environments running on AWS. It includes security and compliance services in a form suitable for small to large-scale Linux enterprise operations - with no contract needed.
+
+KDI’s AWS Ubuntu instances is currently closed but you may access is using the AWS sign in here with the login credentials below.
+
+Email: Kditeam77@gmail.com
+Password: Kdi team230@
+
+
+
+You will be prompted shortly after to enter your MFA ID in order to get verification codes with Google Authenticator. If you set up 2-Step Verification, you can use the Google or MacoS Authenticator app to receive codes. This is a highly secure two-factor authentication across apps when you are working with anything AWS cloud or kubernetes. Authenticator is a software-based authenticator by Google that implements two-step verification services using the Time-based One-time Password Algorithm and HMAC-based One-time Password algorithm, for authenticating users of software applications.
+
+You will be taken to your AWS console home and main screen after user successful login and authentication.You are using the following Amazon EC2 resources in the US East (N. Virginia) Region:
+
+
+
+There are many applications that we could have selected to easily size, configure, and deploy on any  Server.Ec2 - Ubuntu operating system (Mac,Windows,Linux) which runs 24hours as our backend. ​​Ubuntu is the modern, open source operating system on Linux for the enterprise server, desktop, cloud, and IoT. It allows the function to run on the computer alone, or in a virtual machineE2 instances allow us to house our virtual environment and be able to run it on the cloud of AWS. Our virtual environment is called E3 with display information such as URL, API and instance state. AWS Launch reduces the time to deploy many popular workloads.
+
+
+IP: 
+http://127.0.0.1:5000/dashboard 
+
+This will generate our IP for our local host or our local server to give us a public IP address that can be accessed from the backend of any development. We take this given IP address from our E2 instance and add 500 which is our local port to the end of it to create our test URL. http://34.236.151.194:5000 
+
+
+
+We use the AWS Amazon Web Services, Inc. which is a subsidiary of Amazon that provides on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered pay-as-you-go basis. These cloud computing web services provide distributed computing processing capacity and software tools via AWS server farms. 
+The reason being — are using AWS to lower costs, continue to be more agile, and innovate faster. Using the cloud platform, they offer over 200 fully featured services.
+
+t5 Model 
+On our local computer we use a model called T5, which currently outperforms the human baseline on the General Language Understanding Evaluation (GLUE) benchmark – making it one of the most powerful NLP models in existence. T5 was created by Google AI and released to the world for anyone to download and use. This model generates a revised version of inputted text with the goal of containing fewer grammatical errors. The example below highlights lines from 253 to 263 which is the starting code for t5.
+
+(Github)
+
+SILERO SPEECH-TO-TEXT MODEL
+The second model in our order for natural language processing is the Silero Speech-To-Text models which provide enterprise grade STT in a compact form-factor for several commonly spoken languages. Unlike conventional ASR models our models are robust to a variety of dialects, codecs, domains, noises, and lower sampling rates. The models consume normalized audio in the form of samples and output frames with token probabilities. The model provides a decoder utility for simplicity.
+
+We are using Silerro Model as Onnx - First pre trained model of PyTorch 
+	Silera has many models - Onyx select
+Sillero Model Wave to text as Onyx - https://github.com/snakers4/silero-models
+You can see an example below: the Onnx model running on a local Pycharm starting on line 214.
+
+
+(github)
+Onyx is converting a video into a text - inputting a 1 hour video takes too much time..
+Convert video into a Wav file. Wave file is split and input into the onnx Model 
+	-In order to make ingestion better we convert audio into MP4 
+	- By splitting the wave file we get clips that we input into our model
+	- Doing this helps our model process faster 
+Pydub package - wave files are split using pydub
+After getting the text from the Onnx model we split the text 
+To input into t5 Grammar correction model
+	Auto grammar detector 
+	Correction then detection
+
+User Flow 
+To get efficiency on transferring video, remove the grammar correction model because grammar correction takes extremely long on 1 hour videos.
+
+
+Access the step by step guide on the KDI github HERE along with a PDF of the roadmap illustration.
+
+User inputs the mp4 video — on the backend is then converted in an .mp3 file. 
+After the .MP3 file is  converted into an audio .wav file is then split into multiple wav files.
+Through process and success we did find that inputting a 1 hour video will take too long to output there for the use of a 30minute max video is the requirement for full efficiency.
+The next step in the user flow of the model is Inputting into the Onnx model which converts .wav files into .txt files.
+After successful conversion of  .wav files into a .txt  to check the grammar through the model, then operating by correcting that same grammar data.  This leads into the second model the T5 Model - t5 its process is to check the grammar then it applies grammar correction.
+After grammar correction users will get the option to download the video
+Users can get the graph with meaningful words instead of the stop words.
+(is, um, this,) non meaningful words
+
+Ensure that you are in the project home directory. Run mp4_text.py using the below command to start the Flask Project. We use the silero model as onnx to convert the wav into text for the grammar correction. We use the T5 grammar correction model to allow the user to download the text. Included in the T5 model is word count located in the CSV file. Users will get the text with word count.
+
+python mp4_text.py
+
+By default, flask hosted on the AWS server will run on port 5000.
+
+Navigate to URL http://127.0.0.1:5000/ (or) http://localhost:5000
+
+You should be able to view the sign in page.
+
+Jump into the signup page and put your required credentials. After the successful sign in, the user will jump into the sign in page.
+
+
+
+The user will be redirected into the dashboard page.
+On the dashboard page the user has to insert the mp4. video of choice in this case a short KDI bi weekly exchange. The backend uses moviepy to convert the mp4 file into mp3 files. Using the library audioseqmet to convert mp3 into wav and split the wav file into multiple chunks. The reasoning being is to get the best optimization from the model. The shorter the wavelength files the quicker results we get.
+
+We use the silero model as onnx to convert the wav into text for the grammar correction.
+
+We use the T5 grammar correction model to allow the user to download the text. Included in the T5 model is word count located in the CSV file. Users will get the text with word count.
+
+AWS Sign In credentials:
+
+Email: Kditeam77@gmail.com
+Kdi team230@
+
+
+KDI HOME
+
+
+
+You have now navigated to the KDI Home site and dashboard. Here you have the easy to use and helpful navigation features. The KDI site presents options for users to navigate and explore the site. By making menus easy to access and lighting the rest of the screen, people can focus on video categories. With the portfolio dashboard you can not only View, replay, and download all videos but you can;
+Archive bi-weekly exchange meetings
+Download excel report of exchange conversations
+Upload bi-weekly exchange meetings
+ 
+
+
+
+Dashboard
+The dashboard tab enables us to see key functions from the video archives and the videos uploaded. It is one of  three main types of content that you will find on the KDI website: standard KDI videos, external links to a kdi exchange conversation,  Product Descriptions and Visuals: Text or images that showcase the video's main offerings.
+
+
+
+Charts
+You can embed Infogram charts, maps, and infographics on a webpage using the embed feature within python and its packages. Our charts are fully responsive by default which means they automatically adapt and are optimized to the Onnyx and Sillerro Models. The intent was to not just download design language but display a representation of text data in which the importance or frequency of individual words is represented using font size and color. The more important or frequently used a word is in the bi -weekly  exchange, the larger it appears or more frequent. This format allows users to spot the most important or frequently used words in the DataSet. This type of chart is also known as a "tag cloud." A Word Cloud chart requires two columns or rows of data from your DataSet—one for the words in the cloud and another with values representing each word. These values are usually based on the number of occurrences of each word in a specific DataSet.
+
+
+In conclusion we were successful in enabling a model that can be a purpose-built video Archives platform that will allow us to seamlessly stream KDI content, without having to use an excel spreadsheet as part of the manual work. Furthermore, to explore the opportunity of a language learning model that can understand design vernacular using graph databases to see and compare nuances. Although the exploration of design nuances can continue on, the starting point of archiving and displaying the problem is to detect repeating sequences of words across big number of text pieces is well on its way. It is an approximation and efficiency problem, since the data we want to work with is huge.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Appendix
+TheWhiteWolf _TheWhiteWolf _ 3999 bronze badges, and RisaruRisaru 1. “Converting MP4 Files without Frames into MP3 Using Python / Moviepy.” Stack Overflow, 1 May 1968, https://stackoverflow.com/questions/65167062/converting-mp4-files-without-frames-into-mp3-using-python-moviepy. 
+“Vennify/T5-Base-Grammar-Correction · Hugging Face.” Vennify/t5-Base-Grammar-Correction · Hugging Face, https://huggingface.co/vennify/t5-base-grammar-correction. 
+
+ TheWhiteWolf _TheWhiteWolf _ 3999 bronze badges, and RisaruRisaru 1. “Converting MP4 Files without Frames into MP3 Using Python / Moviepy.” Stack Overflow, 1 May 1968, https://stackoverflow.com/questions/65167062/converting-mp4-files-without-frames-into-mp3-using-python-moviepy. 
+
+https://pytorch.org/hub/snakers4_silero-models_stt/
+
+
+AWS https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fconsole%2Fhome%3FhashArgs%3D%2523%26isauthcode%3Dtrue%26nc2%3Dh_ct%26src%3Dheader-signin%26state%3DhashArgsFromTB_us-east-2_8164537efe1751e6&client_id=arn%3Aaws%3Asignin%3A%3A%3Aconsole%2Fcanvas&forceMobileApp=0&code_challenge=36fvUKO5k1J_kfrgA909p0leunjL0KiK-gqgKPLft4o&code_challenge_method=SHA-256 
+
+
+KDI Site Documentation
+https://github.com/Mspaith/KDI 
+
+
+
