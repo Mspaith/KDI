@@ -1,4 +1,4 @@
-# KDI
+# KDI VIDEO ARCHIVE
 In this project, You’ll build a web app that allows users to convert .MP4 files to text using pre train on a Deep learning model call onnx.
 The project was to build a purpose-built video Archives platform that will allow a user to seamlessly stream KDI content, without having to use excel spreadsheet or translator. Furthermore, to explore the opportunity of a language learning model that can understand design vernacular using graph databases to see and compare nuances. 
 ![image](https://user-images.githubusercontent.com/53205087/187512307-43626afb-25c8-43d2-a030-4b79f95270bf.png)
