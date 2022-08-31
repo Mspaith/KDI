@@ -2,7 +2,7 @@
 
 The project was to build a purpose-built video Archives platform that will allow us to seamlessly stream KDI content, without having to use excel spreadsheet, code or hire a developer. Furthermore, to explore the opportunity of a language learning model that can understand design vernacular using graph databases to see and compare nuances. 
 
-[Link] Demo Video
+[https://youtu.be/6FAt6vgwFEY] Demo Video
 
 
 # Dependencies
